@@ -41,7 +41,7 @@ Use it to test event tracking, identify users, and debug PostHog calls quickly.
 ```
     client.capture({ distinctId: 'alice', event: 'demo event' });
     client.identify({ distinctId: 'alice', properties: { plan: 'pro' } });
-    await client.shutdown(); # flush before exiting
+    client.getFeatureFlag('multi-variant-flag', '12345').then((e) => console.log(e)) 
 ```
 
 ---
