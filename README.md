@@ -9,31 +9,40 @@ Use it to test event tracking, identify users, and debug PostHog calls quickly.
 
 1. Clone the repo and install dependencies:
 
-    git clone <your-repo-url>
+```
+    git clone git@github.com:sachinr/posthog-repl.git
     cd posthog-repl
     npm install
+```
 
 2. Create a `.env` file in the project root with your PostHog credentials:
 
+```
     POSTHOG_API_KEY=phc_xxx_your_project_api_key
     POSTHOG_HOST=https://us.i.posthog.com
 
     > Use https://app.posthog.com for EU Cloud or your self-hosted URL.
+```
 
 3. Start the REPL:
 
+```bash
     node repl.js
-
+```
+```
     # Expected output:
     # PostHog client ready as `client`
     # Try client.capture({ distinctId: "test", event: "hello world" })
     # >
+```
 
 4. Experiment in the REPL:
 
+```
     client.capture({ distinctId: 'alice', event: 'demo event' });
     client.identify({ distinctId: 'alice', properties: { plan: 'pro' } });
     await client.shutdown(); # flush before exiting
+```
 
 ---
 
